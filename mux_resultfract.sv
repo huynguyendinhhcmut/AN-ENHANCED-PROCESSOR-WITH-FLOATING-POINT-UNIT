@@ -1,5 +1,6 @@
 module mux_resultfract (
-	input logic enable, sel, I0, I1, I2, I3, I4, I5, I6,
+	input logic enable, I0, I1, I2, I3, I4, I5, I6,
+	input logic [2:0] sel,
 	output logic out
 );
 
