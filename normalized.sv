@@ -25,29 +25,7 @@ assign Exp_B = B[7:4];
 assign Fract_B = B[3:0];
 
 assign sumF[8:0] = {result_sign, Result_exp, Result_fract};
-
-//logic [3:0] expdiff;
-//logic [6:0] totalshiftedfract;
-//logic [7:0] total;
-
-//logic [3:0] smallerfract; 
-//logic [6:0] totalbiggerfract;
-
-/*logic sign_A, sign_B, cin;
-logic [2:0] Exp_A, Exp_B;
-logic [3:0] Fract_A, Fract_B;*/
-
-/*D_FF dff0 (.clk50M(clk50M), .rst(rst), .enable(en_cin), .data_i(Cin), .data_o(cin));
-
-D_FF dff1 (.clk50M(clk50M), .rst(rst), .enable(en_A), .data_i(sign), .data_o(sign_A));
-D_FF dff2 (.clk50M(clk50M), .rst(rst), .enable(en_B), .data_i(sign), .data_o(sign_B));
-
-D_FF3b dff3b1 (.clk50M(clk50M), .rst(rst), .enable(en_A), .data_i(Exp), .data_o(Exp_A));
-D_FF3b dff3b2 (.clk50M(clk50M), .rst(rst), .enable(en_B), .data_i(Exp), .data_o(Exp_B));
-
-D_FF4b dff4b1 (.clk50M(clk50M), .rst(rst), .enable(en_A), .data_i(Fract), .data_o(Fract_A));
-D_FF4b dff4b2 (.clk50M(clk50M), .rst(rst), .enable(en_B), .data_i(Fract), .data_o(Fract_B));*/
-
+	
 assign totalbiggerfract [6] = 1'b1;
 assign totalbiggerfract [1:0] = 2'b00;
 
