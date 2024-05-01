@@ -1,8 +1,8 @@
 module totalBS (
 	input logic cin, A, B, choose,
 	output logic sign_result, 
-	input logic [7:0] total1, total2, 
-	output logic [7:0] total
+	input logic [16:0] total1, total2, 
+	output logic [16:0] total
 );
 
 logic [2:0] sel;

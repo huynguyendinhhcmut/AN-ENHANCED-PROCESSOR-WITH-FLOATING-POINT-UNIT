@@ -1,7 +1,6 @@
 module system (
 	input logic clk, resetn,
 	output logic Done, AddSub, Ain, incr_pc, ADDRin, IRin, W_D, W, Dinout,
-	//input logic [8:0] Din, ADDR,
 	output logic [8:0] BUS, R0, R1, R2, R3, R4, R5, R6, R7, A, AF, sumG, sumGF, G, GF, IR, ADDR, Dout, LEDS, Din, 
 	output logic [4:0] state
 );
