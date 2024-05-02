@@ -34,6 +34,7 @@ assign R4out = (outX[4] & RXout) | (outY[4] & RYout);
 assign R5out = (outX[5] & RXout) | (outY[5] & RYout);
 assign R6out = (outX[6] & RXout) | (outY[6] & RYout);
 assign R7out1 = (outX[7] & RXout) | (outY[7] & RYout);
+
 assign R7out = R7out1 ^ R7out2;
 
 typedef enum bit [4:0] {reset		=	5'b00000, //0
@@ -54,13 +55,14 @@ typedef enum bit [4:0] {reset		=	5'b00000, //0
 								sub3 		= 	5'b01111, //15
 								ld1		=	5'b10000, //16
 								ld2 		=	5'b10001, //17
-								st1		=	5'b10010, //18
-								st2		=	5'b10011, //19
-								st3		=	5'b10100, //20
-								mvnz1		=	5'b10101, //21
-								addf1		=	5'b10110, //22
-								addf2		=	5'b10111, //23
-								addf3		=	5'b11000} state_t;
+								ld3		=	5'b10010, //18
+								st1		=	5'b10011, //19
+								st2		=	5'b10100, //20
+								st3		=	5'b10101, //21
+								mvnz1		=	5'b10110, //22
+								addf1		=	5'b10111, //23
+								addf2		=	5'b11000, //24
+								addf3		=	5'b11001} state_t;
 state_t state_reg, state_next;
 
 always_ff @(posedge clk or negedge resetn) begin
@@ -477,6 +479,29 @@ always @(*) begin
 					state_next = ld2;
 				end
 		ld2: begin
+					RXout = 1'b0; 
+					RYout = 1'b0;
+					Gout = 1'b0;
+					Dinout = 1'b0; 
+					IRin = 1'b0; 
+					Ain = 1'b0;
+					RXin = 1'b0; 
+					RYin = 1'b0; 
+					Gin = 1'b0; 
+					AddSub = 1'b0; 
+					Done = 1'b0;
+					ADDRin = 1'b0;
+					Doutin = 1'b0;
+					W_D = 1'b0;
+					incr_pc = 1'b0;
+					R7out2 = 1'b0;
+					AFin = 1'b0;
+					AddSubF = 1'b0;
+					GFout = 1'b0;
+					GFin = 1'b0;
+					state_next = ld3;
+				end	
+		ld3: begin
 					RXout = 1'b0; 
 					RYout = 1'b0;
 					Gout = 1'b0;
