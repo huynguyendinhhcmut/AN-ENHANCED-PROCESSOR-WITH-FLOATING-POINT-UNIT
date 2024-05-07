@@ -1,5 +1,5 @@
 module ControlunitFSM (
-	input logic clk, resetn, 
+	input logic clk, resetn, run,
 	input logic [8:0] Din, G,
 	output logic [4:0] state,
 	output logic Gout, Dinout, IRin, Ain, GFin, AFin, GFout,
@@ -98,7 +98,7 @@ always @(*) begin
 					GFin = 1'b0;
 						if (!resetn) 
 							state_next = reset;
-						else if (resetn) state_next = ldADDR;
+						else if (resetn && run) state_next = ldADDR;
 					end
 		ldADDR: begin
 					RXout = 1'b0; 
@@ -335,6 +335,9 @@ always @(*) begin
 					Gin = 1'b0; 
 					AddSub = 1'b0; 
 					Done = 1'b0;
+					ADDRin = 1'b0;
+					Doutin = 1'b0;
+					W_D = 1'b0;	
 					incr_pc = 1'b0;	
 					R7out2 = 1'b0;	
 					AFin = 1'b0;
@@ -424,6 +427,9 @@ always @(*) begin
 					Gin = 1'b1; 
 					AddSub = 1'b1; 
 					Done = 1'b0;
+					ADDRin = 1'b0;
+					Doutin = 1'b0;
+					W_D = 1'b0;	
 					incr_pc = 1'b0;
 					R7out2 = 1'b0;
 					AFin = 1'b0;
