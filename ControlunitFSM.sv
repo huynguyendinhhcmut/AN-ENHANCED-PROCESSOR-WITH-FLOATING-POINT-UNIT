@@ -587,7 +587,7 @@ always @(*) begin
 					RYin = 1'b0; 
 					Gin = 1'b0; 
 					AddSub = 1'b0; 
-					Done = 1'b0;
+					Done = 1'b1;
 					ADDRin = 1'b0;
 					Doutin = 1'b0;
 					W_D = 1'b1;
