@@ -1,9 +1,16 @@
 module Processor (
 	input logic [8:0] Din,
 	input logic clk, resetn, run, 
-	output logic [8:0] ADDR, Dout,
+	output logic [8:0] ADDR, Dout, G, GF,
 	output logic W, Done
 );
+
+logic AddSub, Ain, incr_pc, ADDRin, IRin, W_D, Dinout;
+logic [8:0] BUS, R0, R1, R2, R3, R4, R5, R6, R7, A, AF, sumG, sumGF, IR;
+logic [4:0] state;
+logic Gout, Doutin, A7A81, A7A82, wr_en, leds, AFin, GFout, AddSubF;
+logic R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, Gin, GFin;
+logic R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out;
 
 ControlunitFSM FSM (.clk(clk), .resetn(resetn), .GFin(GFin), .AFin(AFin), .GFout(GFout), .AddSubF(AddSubF), .run(run),
 							.Din(Din), .Gout(Gout), .Dinout(Dinout), .IRin(IRin), .Ain(Ain), .Gin(Gin), .AddSub(AddSub), .Done(Done), .state(state), .IR(IR), .incr_pc(incr_pc), .G(G),
